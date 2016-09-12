@@ -1,0 +1,1 @@
+All script files go into this directory
