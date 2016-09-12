@@ -8,7 +8,7 @@ cd /opt/ptc/Windchill_11.0/Windchill/bin
 ./windchill shell
 
 ###command to stop windchill###
-cd /opt/ptc/Windchill_11.0/Windchill
+cd /opt/ptc/Windchill_11.0/Windchill/bin
 ./windchill stop
 
 ###command to stop HTTPServer###
@@ -35,8 +35,8 @@ rm -rf *
 
 ###command to start HTTPServer###
 cd /opt/ptc/Windchill_11.0/HTTPServer/bin
-./apachetcl -k start
+./apachectl -k start
 
 ###command to start Windchill###
-cd /opt/ptc/Windchill_11.0/Windchill
+cd /opt/ptc/Windchill_11.0/Windchill/bin
 ./windchill start

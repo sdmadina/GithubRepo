@@ -11,7 +11,7 @@ cd /opt/ptc/Windchill_11.0/Windchill/bin
 
 
 ### 3. command to stop windchill###
-cd /opt/ptc/Windchill_11.0/Windchill
+cd /opt/ptc/Windchill_11.0/Windchill/bin
 ./windchill stop
 
 
@@ -31,5 +31,5 @@ cd /opt/ptc/Windchill_11.0/Windchill/tasks/codebase/com/infoengine/compiledTasks
 rm -rf *
 
 ###8. command to start Windchill###
-cd /opt/ptc/Windchill_11.0/Windchill
+cd /opt/ptc/Windchill_11.0/Windchill/bin
 ./windchill start
