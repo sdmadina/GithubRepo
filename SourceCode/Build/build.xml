@@ -1,0 +1,187 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="ant2html.xsl"?>
+
+<project name="NIKE_Build" basedir="." default="all" xmlns:sonar="antlib:org.sonar.ant">
+	<property file="build.properties"/>
+	<taskdef resource="net/sf/antcontrib/antlib.xml"/>
+	<target name="all" depends="init,compile,makejar,cleanup" description="Nike's FlexPLM Build">
+		<echo message="---------------------------"/>
+		<echo message="---------------------------"/>
+		<echo message="NIKE code build completed..."/>
+		<echo message="---------------------------"/>
+		<echo message="---------------------------"/>
+	</target>
+	
+	<target name="buildcode" depends="init,compile,makejar,cleanup,buildonly" description="NIKE's FlexPLM Build">
+		<echo message="--------------------------"/>
+		<echo message="---------------------------"/>
+		<echo message="NIKE Code Build completed..."/>
+		<echo message="---------------------------"/>
+		<echo message="---------------------------"/>
+	</target>
+	
+	<!-- *************************************************************************** -->
+	<!-- Initialization Tasks - Tasks to set variables and clean the system          -->
+	<!-- *************************************************************************** -->
+
+	<!-- Initialize build property values -->
+	
+	<target name="init">
+		<echo message="------------------------------------------"/>
+		<echo message="Initializing NIKE code build preparation..."/>
+		<echo message="------------------------------------------"/>
+		<!-- General variables  -->
+		<tstamp>
+            <format property="build.tstamp" pattern="yyyyMMdd" unit="day"/>
+         </tstamp>
+
+		<property environment="env"/>
+		<property name="deprecation" value="true"/>
+		
+
+		<!-- Set classpath -->
+		<path id="project.class.path">
+			<pathelement path="${env.WT_HOME}/codebase"/>
+			<!-- codebase -->
+
+			<fileset dir="${env.WT_HOME}/lib">
+				<!-- include all windchill libs -->
+				<include name="**/*.jar"/>
+			</fileset>
+
+			<fileset dir="${env.WT_HOME}/codebase/WEB-INF/lib">
+				<!-- include all windchill libs -->
+				<include name="**/*.jar"/>
+			</fileset>		
+
+		</path>
+
+		<property name="classpath" refid="project.class.path"/>
+		<property name="codebase" location="${env.WT_HOME}/codebase"/>
+		<property name="web-root" location="${env.WT_HOME}/codebase/rfa/"/>
+		<property name="db" location="${env.WT_HOME}/db"/>
+		<property name="loadFiles" location="${env.WT_HOME}/loadFiles"/>
+		<property name="patches" location="${env.WT_HOME}/patches"/>
+		<property name="src" location="${env.WT_HOME}/src"/>
+		<property name="bin" location="${env.WT_HOME}/bin"/>
+		<property name="compileWithDebug" value="${env.WT_COMPILEWITHDEBUG}"/>
+	    <property name="antlib" location="${env.WT_HOME}/ant/lib"/>
+	</target>
+
+	<!-- *************************************************************************** -->
+	<!-- Java Tasks - Tasks to compile and create package -->
+	<!-- *************************************************************************** -->
+
+	<!-- Compile source to env.WT_HOME/codebase folder -->
+	<target name="compile" depends="copyjspfiles,copypropertyfiles,copybinfiles,copywtcustomfiles,copyLoadFiles" description="Compile The Source Code">		
+		<echo message="--------------------------------"/>
+		<echo message="Starting NIKE code compilation..."/>		
+		<echo message="--------------------------------"/>
+		<mkdir dir="${build.targetpath}"/>
+		<mkdir dir="${build.targetpath}/codebase"/>
+		<mkdir dir="${build.targetpath}/wtCustom"/>
+		<javac srcdir="src" destdir="${build.targetpath}/codebase" debug="true" deprecation="${deprecation}" classpath="${classpath}"/>	
+	</target>
+
+
+   
+	<target name="copyjspfiles" depends="" description="Copies JSP Files To WT_HOME">
+		<echo message="------------------------------"/>
+		<echo message="Starting NIKE jsp files copy..."/>
+		<echo message="------------------------------"/>
+		<copy todir="${build.targetpath}/codebase" overwrite="true">
+					<fileset dir="codebase/" excludes="**/*.java"/>
+		</copy>
+	</target>
+		
+	
+	<target name="copypropertyfiles" depends="" description="Copies Property Files To WT_HOME">
+		<echo message="-----------------------------------"/>
+		<echo message="Starting NIKE property files copy..."/>
+		<echo message="-----------------------------------"/>
+		<copy todir="${build.propfile.client.todir}" overwrite="true">
+					<fileset dir="${build.propfile.client.srcdir}" includes="*.properties"/>
+		</copy>
+		<copy todir="${build.propfile.web.todir}" overwrite="true">
+					<fileset dir="${build.propfile.web.srcdir}" includes="*.properties"/>
+		</copy>
+		<copy todir="${build.targetpath}/codebase" overwrite="true">
+					<fileset dir="codebase/">
+						<include name = "*.properties" />
+						<!-- <exclude name = "custom.lcs.properties" /> -->
+					</fileset>
+		</copy>
+		<delete file="${build.targetpath}/codebase/custom.lcs.properties"/>		
+		
+	</target>
+	
+	<target name="copybinfiles" depends="" description="Copies Bin Files To WT_HOME">
+		<echo message="------------------------------"/>
+		<echo message="Starting NIKE bin files copy..."/>
+		<echo message="------------------------------"/>
+		<copy todir="${build.targetpath}/bin" overwrite="true">
+					<fileset dir="bin/" excludes="**/*.java"/>
+		</copy>
+	</target>
+	
+	<target name="copywtcustomfiles" depends="" description="Copies WTCustom Files To WT_HOME">
+		<echo message="------------------------------"/>
+		<echo message="Starting NIKE wtcustom files copy..."/>
+		<echo message="------------------------------"/>
+		<copy todir="${build.targetpath}/wtCustom" overwrite="true">
+					<fileset dir="wtCustom/" excludes="**/*.java"/>
+		</copy>
+	</target>
+	<target name="copyLoadFiles" depends="" description="Copies NIKE Load Files To WT_HOME">
+		<echo message="------------------------------"/>
+		<echo message="Starting NIKE load files copy..."/>
+		<echo message="------------------------------"/>
+		<copy todir="${build.targetpath}/loadFiles" overwrite="true">
+					<fileset dir="loadFiles/" excludes="**/*.java"/>
+		</copy>
+	</target>
+	
+	<target name="tstamp" description="Set DSTAMP/TSTAMP/TODAY, plus whatever in the body">
+        <tstamp>
+		  <format property="current.time" pattern="MM-dd-yyyy:hh:mm"/>
+		</tstamp>
+		<echo message="${current.time}"/> 
+		<propertyregex property="modifedTimeStamp" input="${current.time}" regexp=":" replace="-" global="true" />
+		<propertyregex property="timeStamp" input="${modifedTimeStamp}" regexp="-" replace="" global="true" />
+    </target>
+	
+	<target name="makejar" depends="compile,tstamp" description="Generate The Distribution">
+		<echo message="-------------------------------"/>
+		<echo message="Starting NIKE jar preparation..."/>
+		<echo message="-------------------------------"/>
+		<!-- Create the distribution directory -->
+		<!-- Put everything in ${build} into the MyProject-${DSTAMP}.jar file -->
+		<jar jarfile="${build.jar.target.location}${build.jar.name}${build.number}.${timeStamp}.jar" basedir="${build.targetpath}"
+		  includes="**/*.*"/>
+	</target>
+	
+	<target name="cleanup" depends="compile,makejar" description="deleting tmp dir">
+		<delete includeemptydirs="true">
+		<fileset dir="${build.targetpath}"/>
+		</delete> 
+		<echo message="------------------------"/>
+		<echo message="tmp directory deleted..."/>
+		<echo message="------------------------"/>
+	</target>
+	
+	<target name="buildonly" depends="compile,makejar" description="deploying code from the jar">		
+		<echo message="------------------------------"/>
+		<echo message="Starting to copy distribution jar to WT_HOME..."/>
+		<echo message="------------------------------"/>
+		<copy  todir="${env.WT_HOME}" overwrite="true">
+				<fileset dir="${build.jar.target.location}" includes="${build.jar.name}${build.number}.jar"/>	
+		</copy>
+		<echo message="------------------------------"/>
+		<echo message="Starting jar deployment..."/>
+		<echo message="------------------------------"/>
+		<unjar src="${env.WT_HOME}/${build.jar.name}${build.number}.jar" dest="${env.WT_HOME}"/>		
+	</target>
+ 	
+</project>
+
+<!-- EOF -->

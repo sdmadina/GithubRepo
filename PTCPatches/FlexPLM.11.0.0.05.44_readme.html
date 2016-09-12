@@ -1,0 +1,651 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11-transitional.dtd">
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+
+
+<head>
+
+
+
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+
+
+<title>FlexPLM.11.0.0.05.44 - 2016-08-17 05:35:35</title>
+
+
+    <style type='text/css'>
+
+
+
+        #spr_table {
+
+            margin-bottom: 60px;
+
+            width:         100%;
+
+        }
+
+
+
+        #spr_table,
+
+        #spr_table th,
+
+        #spr_table td {
+
+            border:          1px solid black;
+
+            border-collapse: collapse;
+
+        }
+
+
+
+        #spr_table th,
+
+        #spr_table td {
+
+            padding: 5px 10px;
+
+        }
+
+
+
+        #spr_table_cust_prob,
+
+        #spr_table_cust_sol {
+
+            word-wrap:      break-word;
+
+            -ms-word-break: break-all;
+
+        }
+
+
+
+        #command_table {
+
+            width: 85%;
+
+        }
+
+
+
+        #command_table,
+
+        #command_table td,
+
+        #command_table th {
+
+            border-width: 1px;
+
+            border-spacing: 0px;
+
+            border-color: black;
+
+            border-style: solid;
+
+            border-collapse: collapse;
+
+            white-space: nowrap;
+
+        }
+
+
+
+        #command_table td,
+
+        #command_table th {
+
+            padding: 5px 30px;
+
+        }
+
+
+
+        .command {
+
+            font-family: Courier, monospace;
+
+        }
+
+
+
+        ol.readme li {
+
+            margin: 20px 0px;
+
+        }
+
+
+
+        h3.readme {
+
+            margin-left: -20px;
+
+        }
+
+
+
+    </style>
+
+
+
+</head>
+
+
+
+<body style="font-family: Arial, serif; padding-left: 40px; padding-right: 40px; margin-left: 20px">
+
+
+
+<h4 style="text-align: center">*** REVIEW THIS ENTIRE DOCUMENT PRIOR TO INSTALLING THE PATCH ***</h4>
+
+
+
+
+
+<h3 class="readme">Patch Summary</h3>
+
+
+
+
+
+<ul style="list-style: none; padding-left: 0px; margin-left: 0px">
+
+    <li><b>Patch Name:</b>&nbsp;FlexPLM.11.0.0.05.44</li>
+
+    <li><b>Version:</b>&nbsp;2016-08-17 05:35:35</li>
+
+    <li><b>Support Release:</b>&nbsp;11.0</li>
+
+    <li><b>Support Datecode:</b>&nbsp;F000</li>
+
+    <li><b>Applicability:</b>&nbsp;This patch contains corrections for a specific set of issues identified by the
+
+    <a href="#SPRS">SPR information</a> at the end of this document.<br>
+
+    Only install the patch onto a system running release 11.0 at datecode F000.<br>
+
+    Additionally, install the patch into the directory where a Windchill solution (such as Windchill PDMLink or Windchill ProjectLink) is installed.</li>
+
+</ul>
+
+
+
+<p>
+
+    <u>Note</u>:&nbsp; Technical support for this patch ends as soon as PTC has addressed these issues
+
+    in a standard 11.0 maintenance release.
+
+</p>
+
+
+
+<p>
+
+    If you have previously modified files provided by PTC, this patch may change some of the same files.
+
+    Consult the <a href="#BOM">patch content list</a> to determine if the content overlaps with your site modifications in the /wtSafeArea/siteMod directory on your system.
+
+    Please note that InfoEngine tasks and DCA configurations are not included in patch content list and may be overwritten by the patch.
+
+    If these tasks have been customized using safe area they would need to be redeployed.
+
+</p>
+
+
+
+<p>
+
+    <b>Installation Process Change:</b>&nbsp;&nbsp;The patch is now distributed as an executable JAR that automatically installs the patch content.
+
+       It also automates other areas of the installation process.  Use the following java command format when executing the patch JAR:<br>
+
+    <div class='command' style='margin-left: 10px'>java -jar FlexPLM.11.0.0.05.44.jar <em>&lt;option&gt;</em></div>
+
+</p>
+
+
+
+<p>
+
+    where <span class='command'><em>&lt;option&gt;</em></span> &nbsp;can be one of the following:
+
+</p>
+
+
+
+<table id="command_table">
+
+    <tr style='align: center'>
+
+        <th>
+
+            Option
+
+        </th>
+
+        <th>
+
+            Description
+
+        </th>
+
+    </tr>
+
+    <tr>
+
+        <td class='command'>
+
+            --install
+
+        </td>
+
+        <td>
+
+            Installs the patch. Use this option when installing the patch for the first time.
+
+        </td>
+
+    </tr>
+
+    <tr>
+
+        <td class='command'>
+
+            --forceinstall
+
+        </td>
+
+        <td>
+
+            Forces the installation of the patch. Use this option when installing the patch multiple times.
+
+        </td>
+
+    </tr>
+
+    <tr>
+
+        <td class='command'>
+
+            --help
+
+        </td>
+
+        <td>
+
+            Lists the options for the command.
+
+        </td>
+
+    </tr>
+
+</table>
+
+
+
+
+
+
+
+<h3 class="readme"><a name="INSTALL_INST">Installation Instructions</a></h3>
+
+
+
+<p>
+
+   <u>Caution</u>: <b>Do not</b> attempt to manually extract and install the files.
+
+</p>
+
+
+
+<p>
+
+   <u>Caution</u>: PTC strongly recommends validating the patch functionality on a test system prior to deploying into production.
+
+</p>
+
+
+
+<p>
+
+    <em>Before installing this patch on your production system, it should be installed and tested in an environment that mirrors your production system.</em>
+
+</p>
+
+
+
+
+
+<h4>Validate Installation Directory and Prerequisites</h4>
+
+
+
+<ol class="readme">
+
+    <li>Start a windchill shell:<br>
+
+        <div class='command' style='margin-left: 10px; margin-top: 20px; margin-bottom: 20px'>windchill shell</div>
+
+    </li>
+
+    <li>Enter the following command to determine if your system is at the correct level to install this patch:<br>
+
+        <div class='command' style='margin-left: 10px; margin-top: 20px; margin-bottom: 20px'>windchill version</div>
+
+    </li>
+
+    <li>
+
+        Check the output of the command to determine if the Windchill Services 11.0 component is at the Support Datecode F000.<br>
+
+        If this is not the case then this patch should not be installed. Please contact <a href="http://www.ptc.com/support/support.htm">PTC Technical Support</a> for assistance.
+
+    </li>
+
+</ol>
+
+
+
+<h4>Take System Offline</h4>
+
+
+
+<ol class="readme">
+
+    <li>Shut down the Windchill server manager and method server, including any Windchill gateway servlets.</li>
+
+    <li>Back up the system and the database.</li>
+
+    <li>Delete all cached servlets by executing the following steps:
+
+        <ol style="list-style-type: lower-alpha">
+
+            <li>Stop the Windchill server processes, server manager and method server(s).</li>
+
+			<li>
+
+			    Delete the <span class='command'><em>&lt;Windchill&gt;</em></span>/tomcat/instances directory.
+
+            </li>
+
+        </ol>
+
+    </li>
+
+    <li>Ensure the default Windchill LDAP Server (Aphelion or Windchill Directory Server) is running.</li>
+
+    <li>Make sure that the properties and other files from the Windchill installation directory are not open in a text editor.</li>
+
+</ol>
+
+
+
+
+
+<h4>Install Patch</h4>
+
+
+
+<p>
+
+    The patch JAR can be located in any directory.  However, these instructions assume that the FlexPLM.11.0.0.05.44 file has been stored in the <em>&lt;Windchill&gt;</em> directory.
+
+</p>
+
+
+
+<ol class="readme">
+
+    <li>Start a windchill shell.</li>
+
+    <li>Install the patch by entering the following command:<br><br>
+
+        <div class='command' style='margin-left: 10px'>java -jar FlexPLM.11.0.0.05.44.jar --install <em>&lt;Windchill&gt;</em></div>
+
+        <p>where <span class='command'><em>&lt;Windchill&gt;</em></span>&nbsp; refers to the product installation directory where you are installing the patch.</p>
+
+        <p>
+
+            The installer issues messages as it executes.  An information log for the installation is written to the following file:<br><br>
+
+            <span class='command'><em>&lt;Windchill&gt;</em></span>/installer/logs/FlexPLM.11.0.0.05.44_PtcInstall.log<br><br>
+
+            This log contains critical information that you should have available if you need to contact PTC Technical support about this patch.
+
+        </p>
+
+        <p>
+
+            If appropriate (based on the content of this patch), the installer automatically compiles RBINFO files, propagates XCONF file changes, and rebuilds the client JAR files.
+
+        </p>
+
+        <p>
+
+			If you have previously modified files provided by PTC, this patch may change some of the same files.
+
+			Consult the <a href="#BOM">patch content list</a> to determine if the content overlaps with your site modifications in the /wtSafeArea/siteMod directory on your system.
+
+			Please note that InfoEngine tasks and DCA configurations are not included in patch content list and may be overwritten by the patch.
+
+			If these tasks have been customized using safe area they would need to be redeployed.
+
+	    </p>
+
+    </li>
+
+    <li>
+
+        To confirm the registration of this patch, execute the following command:<br><br>
+
+        <div class='command' style='margin-left: 10px'>windchill version</div>
+
+        <p>You should see FlexPLM.11.0.0.05.44 in the list of patches.</p>
+
+    </li>
+
+	<li>
+        Review the <a href="#SPRS">SPR Solution description</a> section of this document. Take notes of each patch level that is newer than what is currently installed. Run any new alter(s) unless special instructions indicate to only run an alter under certain circumstances. Ensure new alter(s) gets run in the order of oldest to newest patch release, excluding any previous patches that have already been installed. 
+		<br>
+		<br>
+		There are two types of updates that may be listed in the SPR Solution section: (<u>Note</u>:&nbsp; Special steps will be in bold.)
+		<br><b>- MANUAL STEPS (Windchill Services stopped)
+		<br>- MANUAL STEPS (Windchill Services running)</b>
+		<br>
+    </li>
+
+	<li> Execute all "<b>MANUAL STEPS (Windchill Services stopped)</b>" listed in the SPR Solution section after execution of any required alter(s) in the order of patch release (oldest to newest, excluding any previous patches that have already been installed).
+	</li>
+    <li>
+    Execute the following command from a Windchill shell to finish the installation process:<br>
+    <div class='command' style='margin-left: 10px'>ant -buildfile <span class='command'><em>&lt;Windchill&gt;</em></span>/src/com/lcs/build/installer/RFAInstaller2.xml postWindchillUpdates</div>
+    </li>
+</ol>
+
+
+
+<h4>Bring System Online</h4>
+
+
+
+<ol class="readme">
+
+
+    <li>Start a windchill shell (If not already started by patch deployment process).</li>
+
+    <li>Bring the system back to a production state by restarting the web server, servlet engine, and server manager.</li>
+	<li>Execute all "<b>MANUAL STEPS (Windchill Services running)</b>" listed in the SPR Solution section after execution of any required alter(s) in the order of patch release (oldest to newest, excluding any previous patches that have already been installed).</li>
+</ol>
+
+
+
+<h3 class="readme">Installation for a Master-Replica Setup</h3>
+
+
+
+<p>
+
+(Note: Ignore this section if you do not use Master-Replica setup.)
+
+</p>
+
+
+
+<ol class="readme" type="1">
+
+	<li>Install the patch on the master system.<br><br>
+
+	If property <i>autoManageCCS=false</i>, perform the following steps to apply patch on the replica system:</li>
+
+	<ol class="readme" type="a">
+
+		<li>Shut down all Windchill-related applications.</li>
+
+		<li>Copy the CcsDsu.zip file from the master directory:<br><br>
+
+		<span class='command'><em>&lt;Windchill&gt;</em></span>/codebase/CCSTools/update<br><br>
+
+	to the same directory on the replica site:<br><br>
+
+		<span class='command'><em>&lt;Windchill&gt;</em></span>/codebase/CCSTools/update
+
+		</li>
+
+		<li>On the replica system:
+
+			<ol style="readme" type="i">
+
+				<li>Start a windchill shell.</li>
+
+				<li>Run the following:<br><br> <span class='command'><em>&lt;Windchill&gt;</em></span>/ant/bin/ant -f <span class='command'><em>&lt;Windchill&gt;</em></span>/bin/CCSTools/install_ccsdsu.xml
+
+				<p>
+
+				Perform step <b>1.</b> and <b>2. below</b> only if the content is not moved automatically from '<span class='command'><em>&lt;Windchill&gt;</em></span>/codebase/CCSTools/update' to '<span class='command'><em>&lt;Windchill&gt;</em></span>/codebase/CCSTools/completedUpdate'
+
+				</p>
+
+				<ol class="readme" type="1">
+
+					<li>Create <span class='command'><em>&lt;Windchill&gt;</em></span>/codebase/CCSTools/completedUpdate directory, if it does not already exist.</li>
+
+					<li>Move the contents of 'update' directory:<br><br>
+
+					<span class='command'><em>&lt;Windchill&gt;</em></span>/codebase/CCSTools/update<br><br>
+
+					to the 'completedUpdate' directory:<br><br>
+
+
+
+					<span class='command'><em>&lt;Windchill&gt;</em></span>/codebase/CCSTools/completedUpdate<br><br></li>
+
+				</ol>
+
+			</ol>
+
+		</li>
+
+	</li>
+
+	</ol>
+
+	<li>To confirm the registration of this patch on replica system, execute the command below:<br><br>
+
+	<div class='command' style='margin-left: 10px'>windchill version</div>
+
+	<p>You should see FlexPLM.11.0.0.05.44 in the list of patches.</p>
+
+</ol>
+
+
+
+<h3 class="readme">Installation of Patch on Safe Area-Managed Installations</h3>
+
+
+
+<p>
+
+(Note: Ignore this section if your installation does not use safe area.)
+
+</p>
+
+
+
+<p>
+
+Use installation modes <span class='command'>--safeAreaInstall</span> and <span class='command'>--completeSafeAreaInstall</span> to install patches on installations having safe areas. These two modes will help patch installations respect the safe area and prevent patches from overwriting customizations.
+
+These modes are triggered by the existence of a <em>&lt;Windchill&gt;</em>/wtSafeArea/siteMod directory. If <em>&lt;Windchill&gt;</em>/wtSafeArea directory is renamed to <em>&lt;Windchill&gt;</em>/wtSafeArea.bak, the patch will not respect the safe area (<em>&lt;Windchill&gt;</em>/wtSafeArea) and is installable using the <span class='command'>--install</span> install mode.
+
+If you have a safe area, we strongly recommend that you do not rename the wtSafeArea directory and that you use the steps below for your patch installation:
+
+</p>
+
+
+
+<ol class="readme" type="1">
+
+	<li>Run the patch installation in safe area mode using the <span class='command'>--safeAreaInstall</span> flag.<br>
+
+	Safe area installation mode copies files that are common between installable content of the patch and <em>&lt;Windchill&gt;</em>/wtSafeArea/siteMod to <em>&lt;Windchill&gt;</em>/wtSafeArea/ptcCurrent.</li>
+
+	<li>Merge any updated or new files in <em>&lt;Windchill&gt;</em>/wtSafeArea/ptcCurrent (updated or added from step 1) with your customizations in <em>&lt;Windchill&gt;</em>/wtSafeArea/siteMod. Once you are sure siteMod looks good with respect to ptcCurrent, move to step 3.
+
+	<li>Run the patch installation in complete safe area mode using the <span class='command'>--completeSafeAreaInstall</span> flag.<br>
+
+	Complete safe area mode performs normal deployment steps (as done by <span class='command'>--install</span> mode) and has an extra step of copying merged files in <em>&lt;Windchill&gt;</em>/wtSafeArea/siteMod (from step 2) to <em>&lt;Windchill&gt;</em>. </li>
+
+</ol>
+
+<h3 class="readme"><a name="BOM">Content List</a></h3>
+
+
+
+<pre>PatchContents.txt<br/>db/sql/<br/>db/sql/com/<br/>db/sql/com/lcs/<br/>db/sql3/<br/>db/sql3/com/<br/>db/sql3/com/lcs/<br/>db/sqlServer/<br/>db/sqlServer/com/<br/>db/sqlServer/com/lcs/<br/>codebase/com/<br/>codebase/com/lcs/<br/>codebase/com/lcs/wc/<br/>codebase/com/lcs/wc/changeAudit/<br/>codebase/com/lcs/wc/changeAudit/ChangeDefinitionCache.class<br/>codebase/com/lcs/wc/client/<br/>codebase/com/lcs/wc/client/activityControllerMappings.properties<br/>codebase/com/lcs/wc/client/web/<br/>codebase/com/lcs/wc/client/web/controllerAliases.properties<br/>codebase/com/lcs/wc/client/web/FlexTypeGenerator.class<br/>codebase/com/lcs/wc/client/web/urlMappings.properties<br/>codebase/com/lcs/wc/db/<br/>codebase/com/lcs/wc/db/QueryTask.class<br/>codebase/com/lcs/wc/document/<br/>codebase/com/lcs/wc/document/XMLParser.class<br/>codebase/com/lcs/wc/flexbom/<br/>codebase/com/lcs/wc/flexbom/LCSFindFlexBOMHelper.class<br/>codebase/com/lcs/wc/flextype/<br/>codebase/com/lcs/wc/flextype/dynamicEnum/<br/>codebase/com/lcs/wc/flextype/dynamicEnum/provider/<br/>codebase/com/lcs/wc/flextype/dynamicEnum/provider/AttributeMappingEnumerationInfoProvider.class<br/>codebase/com/lcs/wc/flextype/dynamicEnum/provider/ProviderHelper$AttributeMappedAttributeFilter.class<br/>codebase/com/lcs/wc/flextype/dynamicEnum/provider/ProviderHelper$MappedAttributeFilter.class<br/>codebase/com/lcs/wc/flextype/dynamicEnum/provider/ProviderHelper$TypeDefinitionMappedAttributeFilter.class<br/>codebase/com/lcs/wc/flextype/dynamicEnum/provider/ProviderHelper.class<br/>codebase/com/lcs/wc/flextype/guiHandlers/<br/>codebase/com/lcs/wc/flextype/guiHandlers/CompositeDatatypeGuiHandler.class<br/>codebase/com/lcs/wc/flextype/StandardFlexTypeService$1.class<br/>codebase/com/lcs/wc/flextype/StandardFlexTypeService$DeleteAttsEventListener.class<br/>codebase/com/lcs/wc/flextype/StandardFlexTypeService$DeleteAttsPostEventListener.class<br/>codebase/com/lcs/wc/flextype/StandardFlexTypeService$DeletePostNumericAttsEventListener.class<br/>codebase/com/lcs/wc/flextype/StandardFlexTypeService$DeletePreNumericAttsEventListener.class<br/>codebase/com/lcs/wc/flextype/StandardFlexTypeService$DeleteSyncAttInfo.class<br/>codebase/com/lcs/wc/flextype/StandardFlexTypeService$DeleteTypesEventListener.class<br/>codebase/com/lcs/wc/flextype/StandardFlexTypeService.class<br/>codebase/com/lcs/wc/flextype/synchronize/<br/>codebase/com/lcs/wc/flextype/synchronize/TypeDefinitionSynchronizer.class<br/>codebase/com/lcs/wc/flextype/TypeDefinitionHelper.class<br/>codebase/com/lcs/wc/flextype/validators/<br/>codebase/com/lcs/wc/flextype/validators/MappedAttributeValidator.class<br/>codebase/com/lcs/wc/flextype/validators/ReferencedMappedAttributeValidator.class<br/>codebase/com/lcs/wc/foundation/<br/>codebase/com/lcs/wc/foundation/LCSLogic.class<br/>codebase/com/lcs/wc/load/<br/>codebase/com/lcs/wc/load/ExtractGroups.class<br/>codebase/com/lcs/wc/load/LoadMeasurement.class<br/>codebase/com/lcs/wc/material/<br/>codebase/com/lcs/wc/material/LCSMaterialSupplierLogic.class<br/>codebase/com/lcs/wc/pbv/<br/>codebase/com/lcs/wc/pbv/ProfileBasedViewCache.class<br/>codebase/com/lcs/wc/report/<br/>codebase/com/lcs/wc/report/AttributeCollection.class<br/>codebase/com/lcs/wc/report/FiltersList.class<br/>codebase/com/lcs/wc/report/QueryDefinitionCache.class<br/>codebase/com/lcs/wc/resource/<br/>codebase/com/lcs/wc/resource/MainRB.class<br/>codebase/com/lcs/wc/season/<br/>codebase/com/lcs/wc/season/LCSSeasonQuery.class<br/>codebase/com/lcs/wc/specification/<br/>codebase/com/lcs/wc/specification/FlexSpecQuery.class<br/>codebase/com/lcs/wc/tools/<br/>codebase/com/lcs/wc/tools/migration/<br/>codebase/com/lcs/wc/tools/migration/FX24MigratorColumnListAndFiltersList.class<br/>codebase/com/lcs/wc/tools/windu/<br/>codebase/com/lcs/wc/tools/windu/XMPDiagnostic.class<br/>codebase/com/lcs/wc/tools/winru/<br/>codebase/com/lcs/wc/tools/winru/XMPRepair.class<br/>codebase/com/lcs/wc/util/<br/>codebase/com/lcs/wc/util/adobeForms/<br/>codebase/com/lcs/wc/util/adobeForms/AdobeXMLHelper.class<br/>codebase/com/lcs/wc/util/FormatHelper.class<br/>codebase/com/lcs/wc/util/XMLHelper.class<br/>codebase/com/lcs/wc/util/XMLSearch.class<br/>codebase/com/lcs/xconfs/<br/>codebase/com/lcs/xconfs/flexplm.wt.properties.xconf<br/>codebase/com/ptc/<br/>codebase/com/ptc/core/<br/>codebase/com/ptc/core/layout/<br/>codebase/com/ptc/core/layout/configurableview/<br/>codebase/com/ptc/core/layout/configurableview/ConfigurableViewProfileMappingCache.class<br/>codebase/com/ptc/rfa/<br/>codebase/com/ptc/rfa/rest/<br/>codebase/com/ptc/rfa/rest/config/<br/>codebase/com/ptc/rfa/rest/config/logic/<br/>codebase/com/ptc/rfa/rest/config/logic/TechPackConfigLogicBuilder.class<br/>codebase/com/ptc/rfa/rest/search/<br/>codebase/com/ptc/rfa/rest/search/utility/<br/>codebase/com/ptc/rfa/rest/search/utility/SearchUtility.class<br/>codebase/com/ptc/rfa/rest/view/<br/>codebase/com/ptc/rfa/rest/view/builder/<br/>codebase/com/ptc/rfa/rest/view/builder/ViewBuilder.class<br/>codebase/com/ptc/rfa/rest/view/service/<br/>codebase/com/ptc/rfa/rest/view/service/ViewService.class<br/>codebase/com/ptc/rfa/rest/view/ViewRestService.class<br/>codebase/rfa/<br/>codebase/rfa/css/<br/>codebase/rfa/css/main.css<br/>codebase/rfa/images/<br/>codebase/rfa/images/apps-icon.png<br/>codebase/rfa/images/tech_pack_access.png<br/>codebase/rfa/install_templates/<br/>codebase/rfa/install_templates/help/<br/>codebase/rfa/install_templates/help/40-app-RFA-FHC.conf<br/>codebase/rfa/install_templates/help/40-app-RFA-TPAAHC.conf<br/>codebase/rfa/install_templates/help/websphere/<br/>codebase/rfa/install_templates/help/websphere/40-app-RFA-FHC.conf<br/>codebase/rfa/install_templates/help/websphere/40-app-RFA-TPAAHC.conf<br/>codebase/rfa/install_templates/help/Windchill-TPAAHC.xml<br/>codebase/rfa/javascript/<br/>codebase/rfa/javascript/flexbomlogic.js<br/>codebase/rfa/jsp/<br/>codebase/rfa/jsp/adobeForms/<br/>codebase/rfa/jsp/adobeForms/submitFormXML.jsp<br/>codebase/rfa/jsp/calendar/<br/>codebase/rfa/jsp/calendar/UpdateCalendar.jsp<br/>codebase/rfa/jsp/calendar/UpdateTemplateCalendarTask.jsp<br/>codebase/rfa/jsp/change/<br/>codebase/rfa/jsp/change/UpdateChangeActivity.jsp<br/>codebase/rfa/jsp/color/<br/>codebase/rfa/jsp/color/ColorAjaxSearch.jsp<br/>codebase/rfa/jsp/color/FindColorCriteria.jsp<br/>codebase/rfa/jsp/color/UpdateColor.jsp<br/>codebase/rfa/jsp/color/UpdatePalette.jsp<br/>codebase/rfa/jsp/construction/<br/>codebase/rfa/jsp/construction/ConstructionEditor2.jsp<br/>codebase/rfa/jsp/controlledBusinessObject/<br/>codebase/rfa/jsp/controlledBusinessObject/UpdateCBO.jsp<br/>codebase/rfa/jsp/country/<br/>codebase/rfa/jsp/country/UpdateCountry.jsp<br/>codebase/rfa/jsp/delete/<br/>codebase/rfa/jsp/delete/AjaxDeleteValidate.jsp<br/>codebase/rfa/jsp/document/<br/>codebase/rfa/jsp/document/UpdateDocument.jsp<br/>codebase/rfa/jsp/document/UpdateDocumentCollection.jsp<br/>codebase/rfa/jsp/document/UpdateImagePageDocument.jsp<br/>codebase/rfa/jsp/effectivityContext/<br/>codebase/rfa/jsp/effectivityContext/UpdateEffectivityContext.jsp<br/>codebase/rfa/jsp/flexbom/<br/>codebase/rfa/jsp/flexbom/EditBOMAlt.jsp<br/>codebase/rfa/jsp/flexbom/FindColorwaysCount.jsp<br/>codebase/rfa/jsp/flexbom/SubAssemblyAjaxSearch.jsp<br/>codebase/rfa/jsp/image/<br/>codebase/rfa/jsp/image/UpdateImage.jsp<br/>codebase/rfa/jsp/inspiration/<br/>codebase/rfa/jsp/inspiration/UpdateInspiration.jsp<br/>codebase/rfa/jsp/last/<br/>codebase/rfa/jsp/last/UpdateLast.jsp<br/>codebase/rfa/jsp/logEntry/<br/>codebase/rfa/jsp/logEntry/UpdateLogEntry.jsp<br/>codebase/rfa/jsp/main/<br/>codebase/rfa/jsp/main/AppSwitcher.jsp<br/>codebase/rfa/jsp/main/AppSwitcherController.jsp<br/>codebase/rfa/jsp/main/CsvLoadFileProcessor.jsp<br/>codebase/rfa/jsp/main/DocumentFileProcessor.jsp<br/>codebase/rfa/jsp/main/Header.jsp<br/>codebase/rfa/jsp/main/ImageFileProcessor.jsp<br/>codebase/rfa/jsp/main/POMFileProcessor.jsp<br/>codebase/rfa/jsp/main/SideMenu.jsp<br/>codebase/rfa/jsp/material/<br/>codebase/rfa/jsp/material/UpdateMaterial.jsp<br/>codebase/rfa/jsp/materialSupplier/<br/>codebase/rfa/jsp/materialSupplier/MaterialSupplierAjaxSearch.jsp<br/>codebase/rfa/jsp/measurements/<br/>codebase/rfa/jsp/measurements/MeasurementsEditor2.jsp<br/>codebase/rfa/jsp/media/<br/>codebase/rfa/jsp/media/UpdateMedia.jsp<br/>codebase/rfa/jsp/placeholder/<br/>codebase/rfa/jsp/placeholder/UpdatePlaceholder.jsp<br/>codebase/rfa/jsp/planning/<br/>codebase/rfa/jsp/planning/PlanLineItemAjaxFilterSearch.jsp<br/>codebase/rfa/jsp/planning/PlanLineItemAjaxSearch.jsp<br/>codebase/rfa/jsp/planning/UpdatePlan.jsp<br/>codebase/rfa/jsp/product/<br/>codebase/rfa/jsp/product/ProductAjaxSearch.jsp<br/>codebase/rfa/jsp/product/UpdateProduct.jsp<br/>codebase/rfa/jsp/product/UpdateProductDestination.jsp<br/>codebase/rfa/jsp/reports/<br/>codebase/rfa/jsp/reports/FilterAjaxSearch.jsp<br/>codebase/rfa/jsp/revisableBusinessObject/<br/>codebase/rfa/jsp/revisableBusinessObject/UpdateRBO.jsp<br/>codebase/rfa/jsp/samples/<br/>codebase/rfa/jsp/samples/SampleCommentsAJAXSearch.jsp<br/>codebase/rfa/jsp/samples/UpdateMultipleSample.jsp<br/>codebase/rfa/jsp/samples/UpdateSample.jsp<br/>codebase/rfa/jsp/season/<br/>codebase/rfa/jsp/season/UpdateSeason.jsp<br/>codebase/rfa/jsp/season/UpdateSeasonGroup.jsp<br/>codebase/rfa/jsp/silhouette/<br/>codebase/rfa/jsp/silhouette/UpdateSilhouette.jsp<br/>codebase/rfa/jsp/sizing/<br/>codebase/rfa/jsp/sizing/UpdateActualSizeRange.jsp<br/>codebase/rfa/jsp/sizing/UpdateProductSizeCategory.jsp<br/>codebase/rfa/jsp/sku/<br/>codebase/rfa/jsp/sku/UpdateSKU.jsp<br/>codebase/rfa/jsp/sourcing/<br/>codebase/rfa/jsp/sourcing/UpdateCostSheet2.jsp<br/>codebase/rfa/jsp/sourcing/UpdateOrderConfirmation.jsp<br/>codebase/rfa/jsp/sourcing/UpdateRFQRequest.jsp<br/>codebase/rfa/jsp/sourcing/UpdateSourcingConfig.jsp<br/>codebase/rfa/jsp/specification/<br/>codebase/rfa/jsp/specification/UpdateSpecification.jsp<br/>codebase/rfa/jsp/supplier/<br/>codebase/rfa/jsp/supplier/UpdateSupplier.jsp<br/>codebase/rfa/jsp/testing/<br/>codebase/rfa/jsp/testing/TestSpecificationEditor.jsp<br/>src/com/lcs/properties/<br/>src/com/lcs/properties/activityControllerMappings.properties<br/>src/com/lcs/properties/controllerAliases.properties<br/>src/com/lcs/properties/flexplm.wt.properties.xconf<br/>src/com/lcs/properties/urlMappings.properties<br/>src/com/lcs/wc/resource/<br/>src/com/lcs/wc/resource/MainRB.java<br/>src/com/lcs/build/<br/>src/com/lcs/build/version.properties<br/>src/com/lcs/build/installer/<br/>src/com/lcs/build/installer/RFAInstaller2.xml<br/>src/com/lcs/build/helpcenter/<br/>src/com/lcs/build/helpcenter/deployRFAHelpCenterWarFile.xml<br/>srclib/flexplm/<br/>srclib/flexplm/FlexMigrators-windu.jar<br/>srclib/flexplm/FlexMigrators-winru.jar<br/>Upgrade/UpgradePhases/<br/>Upgrade/UpgradePhases/ExecuteServerMigrators/<br/>Upgrade/UpgradePhases/ExecuteStandaloneMigrators/<br/>WinRU/<br/>WinRU/TrackingChangeRepairTask.xml<br/>WinRU/XMPRepair.xml<br/>WinDU/<br/>WinDU/LCSSourceToSeasonClearReferencesDiagnosticTask.xml<br/>WinDU/XMPDiagnostic.xml<br/>wtCustom/wt/<br/>wtCustom/wt/lifecycle/<br/>
+
+</pre>
+
+
+
+<h3 class="readme"><a name="SPRS">SPR Descriptions</a></h3>
+
+
+
+
+
+<h1 style="font-family: Arial, serif; text-align: center; font-weight: bold; font-style: italic">FlexPLM.11.0.0.05.44</h1>
+
+<table border id="spr_table">
+<tr>
+<th style="width:  7%">SPR</th>
+<th style="width: 40%">Problem</th>
+<th style="width: 53%">Solution</th>
+</tr>
+</table>
+<pre><br/><br/>Patch Corrections For:  FlexPLM 11.0 F000 on PDMLink 11.0 F000<br/><br/><br/>#########  Patch 1  #####################<br/><br/>SPR: 5598555 - Season group attributes are not handled properly by 10.2 M030 upgrade migrator (Migrator for ColumnList, FiltersList class file)<br/><br/>Corrected By:<br/>codebase/com/lcs/wc/tools/migration/FX24MigratorColumnListAndFiltersList.class<br/><br/><br/>SPR: 5625755 - IF a filter contains attributes that are Season Group Attributes they seem to disappear from the Filter page when you go back to Update it or make any changes<br/><br/>Corrected By:<br/>codebase/com/lcs/wc/report/AttributeCollection.class<br/>codebase/com/lcs/wc/report/FiltersList.class<br/><br/><br/>SPR: 5614871 - Detect Incorrect LCSSourceToSeasonLink CarriedOver and Moved References WinDU fails to run.<br/><br/>Corrected By:<br/>WinDU/LCSSourceToSeasonClearReferencesDiagnosticTask.xml<br/><br/><br/>SPR: 5614904 - Delete ChangeAuditEvent/ChangeAuditEventDetail WinRU fails to run.<br/><br/>Corrected By:<br/>WinRU/TrackingChangeRepairTask.xml<br/><br/>SPR: 5611869 - Unable to override global enumerated list for composite type attribute in FlexPLM 11.0 beta<br/><br/>Corrected By:<br/>codebase/com/lcs/wc/flextype/guiHandlers/CompositeDatatypeGuiHandler.class<br/><br/><br/>SPR: 5315906 - Deleting a Integer/Real attribute in one type might either throw exception or might update the attribute value to zero but in another type<br/><br/>Corrected By:<br/>codebase/com/lcs/wc/flextype/StandardFlexTypeService$DeleteAttsEventListener.class<br/>codebase/com/lcs/wc/flextype/StandardFlexTypeService$DeleteAttsPostEventListener.class<br/>codebase/com/lcs/wc/flextype/StandardFlexTypeService$DeletePostNumericAttsEventListener.class<br/>codebase/com/lcs/wc/flextype/StandardFlexTypeService$DeletePreNumericAttsEventListener.class<br/>codebase/com/lcs/wc/flextype/StandardFlexTypeService$DeleteSyncAttInfo.class<br/>codebase/com/lcs/wc/flextype/StandardFlexTypeService$DeleteTypesEventListener.class<br/>codebase/com/lcs/wc/flextype/StandardFlexTypeService.class<br/>codebase/com/lcs/wc/flextype/StandardFlexTypeService$1.class<br/>codebase/com/lcs/wc/flextype/TypeDefinitionHelper.class<br/>codebase/com/lcs/wc/flextype/synchronize/TypeDefinitionSynchronizer.class<br/><br/><br/>#########  Patch 2  #####################<br/><br/>SPR:  5671357 TPAA: Products created by various users are displayed even on application of the Filter "Created By (Product) :Dummy User"<br/>SPR:  5655982 TPAA: The "rfa/products/{id}/skuentities" REST API doesn’t return the sku master id which is needed for the tech pack app<br/>SPR:  5655994 TPAA: The "rfa/products/{id}/describedbydocumententities" "rfa/products/{id}/referencedocumententities" and REST API doesn’t return the version information which is needed for the tech pack app<br/>SPR:  5656002 TPAA: The "TechPackConfigLogicBuilder" missing properties<br/>SPR:  5669901:  Security Issue in FlexPLM<br/>SPR:  5684604:  Security Issue in FlexPLM<br/>SPR:  5627681:  Security issue in FlexPLM<br/><br/>Modified Files:<br/>codebase/com/lcs/wc/changeAudit/ChangeDefinitionCache.class<br/>codebase/com/lcs/wc/document/XMLParser.class<br/>codebase/com/lcs/wc/load/ExtractGroups.class<br/>codebase/com/lcs/wc/pbv/ProfileBasedViewCache.class<br/>codebase/com/lcs/wc/report/QueryDefinitionCache.class<br/>codebase/com/lcs/wc/util/XMLHelper.class<br/>codebase/com/lcs/wc/util/XMLSearch.class<br/>codebase/com/lcs/wc/util/adobeForms<br/>codebase/com/lcs/wc/util/adobeForms/AdobeXMLHelper.class<br/>codebase/com/lcs/xconfs/flexplm.wt.properties.xconf<br/>codebase/com/ptc/core/layout/configurableview/ConfigurableViewProfileMappingCache.class<br/>codebase/com/ptc/rfa/rest/config/logic/TechPackConfigLogicBuilder.class<br/>codebase/com/ptc/rfa/rest/search/utility/SearchUtility.class<br/>codebase/rfa/jsp/adobeForms/submitFormXML.jsp<br/>codebase/rfa/jsp/calendar/UpdateCalendar.jsp<br/>codebase/rfa/jsp/calendar/UpdateTemplateCalendarTask.jsp<br/>codebase/rfa/jsp/change/UpdateChangeActivity.jsp<br/>codebase/rfa/jsp/color/ColorAjaxSearch.jsp<br/>codebase/rfa/jsp/color/UpdateColor.jsp<br/>codebase/rfa/jsp/color/UpdatePalette.jsp<br/>codebase/rfa/jsp/construction/ConstructionEditor2.jsp<br/>codebase/rfa/jsp/controlledBusinessObject/UpdateCBO.jsp<br/>codebase/rfa/jsp/country/UpdateCountry.jsp<br/>codebase/rfa/jsp/delete/AjaxDeleteValidate.jsp<br/>codebase/rfa/jsp/document/UpdateDocument.jsp<br/>codebase/rfa/jsp/document/UpdateDocumentCollection.jsp<br/>codebase/rfa/jsp/document/UpdateImagePageDocument.jsp<br/>codebase/rfa/jsp/effectivityContext/UpdateEffectivityContext.jsp<br/>codebase/rfa/jsp/flexbom/EditBOMAlt.jsp<br/>codebase/rfa/jsp/flexbom/FindColorwaysCount.jsp<br/>codebase/rfa/jsp/flexbom/SubAssemblyAjaxSearch.jsp<br/>codebase/rfa/jsp/image/UpdateImage.jsp<br/>codebase/rfa/jsp/inspiration/UpdateInspiration.jsp<br/>codebase/rfa/jsp/last/UpdateLast.jsp<br/>codebase/rfa/jsp/logEntry/UpdateLogEntry.jsp<br/>codebase/rfa/jsp/material/UpdateMaterial.jsp<br/>codebase/rfa/jsp/materialSupplier/MaterialSupplierAjaxSearch.jsp<br/>codebase/rfa/jsp/measurements/MeasurementsEditor2.jsp<br/>codebase/rfa/jsp/media/UpdateMedia.jsp<br/>codebase/rfa/jsp/placeholder/UpdatePlaceholder.jsp<br/>codebase/rfa/jsp/plan/UpdatePlan.jsp<br/>codebase/rfa/jsp/planning/PlanLineItemAjaxFilterSearch.jsp<br/>codebase/rfa/jsp/planning/PlanLineItemAjaxSearch.jsp<br/>codebase/rfa/jsp/product/ProductAjaxSearch.jsp<br/>codebase/rfa/jsp/product/UpdateProduct.jsp<br/>codebase/rfa/jsp/product/UpdateProductDestination.jsp<br/>codebase/rfa/jsp/reports/FilterAjaxSearch.jsp<br/>codebase/rfa/jsp/revisableBusinessObject/UpdateRBO.jsp<br/>codebase/rfa/jsp/samples/SampleCommentsAJAXSearch.jsp<br/>codebase/rfa/jsp/samples/UpdateMultipleSample.jsp<br/>codebase/rfa/jsp/samples/UpdateSample.jsp<br/>codebase/rfa/jsp/season/UpdateSeason.jsp<br/>codebase/rfa/jsp/season/UpdateSeasonGroup.jsp<br/>codebase/rfa/jsp/silhouette/UpdateSilhouette.jsp<br/>codebase/rfa/jsp/sizing/UpdateActualSizeRange.jsp<br/>codebase/rfa/jsp/sizing/UpdateProductSizeCategory.jsp<br/>codebase/rfa/jsp/sku/UpdateSKU.jsp<br/>codebase/rfa/jsp/sourcing/UpdateCostSheet2.jsp<br/>codebase/rfa/jsp/sourcing/UpdateOrderConfirmation.jsp<br/>codebase/rfa/jsp/sourcing/UpdateRFQRequest.jsp<br/>codebase/rfa/jsp/sourcing/UpdateSourcingConfig.jsp<br/>codebase/rfa/jsp/specification/UpdateSpecification.jsp<br/>codebase/rfa/jsp/supplier/UpdateSupplier.jsp<br/>codebase/rfa/jsp/testing/TestSpecificationEditor.jsp<br/><br/><br/><br/>#########  Patch 3  #####################<br/><br/>SPR: 5750815 - Update Flex installer tooling to support installation of Tech Pack Help Center<br/>SPR: 5035735 - Upgrade Specific: Edit Document Attributes for existing FLEX document crashes AI<br/>SPR: 5744509 - Security issue in FlexPLM<br/>SPR: 5744523 - Security issue in FlexPLM<br/>SPR: 5723434 - Provide the ability to launch the TPAA Client from the Classic FlexPLM client<br/>SPR: 5723770 - TPAA: Unable to search. Contact your administrator error when teckpackappthing configured for items to display=800 say and user tries to navigate to page 2 of results.<br/><br/>Modified Files:<br/>codebase/rfa/jsp/main/CsvLoadFileProcessor.jsp<br/>codebase/rfa/jsp/main/DocumentFileProcessor.jsp<br/>codebase/rfa/jsp/main/ImageFileProcessor.jsp<br/>codebase/rfa/jsp/main/POMFileProcessor.jsp<br/>codebase/com/lcs/wc/client/activityControllerMappings.properties<br/>codebase/com/lcs/wc/client/web/controllerAliases.properties<br/>codebase/com/lcs/wc/client/web/urlMappings.properties<br/>codebase/com/lcs/wc/db/QueryTask.class<br/>codebase/com/lcs/wc/resource/MainRB.class<br/>codebase/com/lcs/wc/tools/windu/XMPDiagnostic.class<br/>codebase/com/lcs/wc/tools/winru/XMPRepair.class<br/>codebase/com/lcs/wc/util/FormatHelper.class<br/>codebase/com/lcs/xconfs/flexplm.wt.properties.xconf<br/>codebase/rfa/css/main.css<br/>codebase/rfa/images/apps-icon.png<br/>codebase/rfa/images/tech_pack_access.png<br/>codebase/rfa/install_templates/help/40-app-RFA-FHC.conf<br/>codebase/rfa/install_templates/help/websphere/40-app-RFA-FHC.conf<br/>codebase/rfa/install_templates/help/40-app-RFA-TPAAHC.conf<br/>codebase/rfa/install_templates/help/websphere/40-app-RFA-TPAAHC.conf<br/>codebase/rfa/install_templates/help/Windchill-FHC.xml<br/>codebase/rfa/install_templates/help/Windchill-TPAAHC.xml<br/>codebase/rfa/jsp/main/AppSwitcher.jsp<br/>codebase/rfa/jsp/main/AppSwitcherController.jsp<br/>codebase/rfa/jsp/main/Header.jsp<br/>codebase/rfa/jsp/main/SideMenu.jsp<br/>src/com/lcs/build/helpcenter/deployRFAHelpCenterWarFile.xml<br/>src/com/lcs/build/installer/RFAInstaller2.xml<br/>src/com/lcs/properties/flexplm.wt.properties.xconf<br/><br/><br/>#########  Patch 4  #####################<br/><br/>SPR: 5747199 - /rfa/views REST End Point should return the Default View for FIND_ADVANCED_MATERIAL<br/><br/>Corrected By:<br/>codebase/com/ptc/rfa/rest/view/builder/ViewBuilder.class<br/>codebase/com/ptc/rfa/rest/view/service/ViewService.class<br/>codebase/com/ptc/rfa/rest/view/ViewRestService.class<br/><br/><br/>SPR: 5825275 - Product Measurement sets loader fails with ptc_str_4 column not found for com.lcs.wc.season.LCSSeason exception in FlexPLM 11<br/><br/>Corrected By:<br/>codebase/com/lcs/wc/load/LoadMeasurement.class<br/>codebase/com/lcs/wc/season/LCSSeasonQuery.class<br/><br/><br/>#########  Patch 5  #####################<br/><br/>SPR: 5851058 - 	Colors entered as text in Colorway overrides do not display in the expanded override rows in BOM editor<br/><br/>Corrected By:<br/>codebase/rfa/javascript/flexbomlogic.js<br/><br/><br/>SPR: 5838399 - Color entered on BOM as text for Material with Color Control mode set to Uncontrolled for Colorway it does not display in the BOM viewer<br/><br/>Corrected By:<br/>codebase/com/lcs/wc/flexbom/LCSFindFlexBOMHelper.class<br/><br/><br/>SPR: 5845232 - 	Calculation applied on Palette-Material-Colorlink Type doesnot work in FlexPLM<br/><br/>Corrected By:<br/>codebase/com/lcs/wc/foundation/LCSLogic.class<br/><br/><br/>SPR: 5735474 - TPAA: Object Reference attributes are not getting sorted correctly on Image Card page<br/><br/>Corrected By:<br/>codebase/com/lcs/wc/client/web/FlexTypeGenerator.class<br/>codebase/com/lcs/wc/specification/FlexSpecQuery.class<br/>codebase/com/ptc/rfa/rest/search/utility/SearchUtility.class<br/><br/><br/>SPR: 5690353 - In Colorway Manager, user cannot add colors from the palette.<br/><br/>Corrected by:<br/>codebase/rfa/jsp/color/FindColorCriteria.jsp<br/><br/><br/>SPR:  5869156:  Sequence attribute is not getting initial value upon creation and derived attributes are not getting set on the create.<br/><br/>Corrected By:<br/>codebase/com/lcs/wc/material/LCSMaterialSupplierLogic.class<br/><br/><br/>SPR:  5610057:  Can't map Placeholder attribute to Product type in flexplm 10.2 M030 system.<br/><br/>Corrected By:<br/>codebase/com/lcs/wc/flextype/dynamicEnum/provider/AttributeMappingEnumerationInfoProvider.class<br/>codebase/com/lcs/wc/flextype/dynamicEnum/provider/ProviderHelper$AttributeMappedAttributeFilter.class<br/>codebase/com/lcs/wc/flextype/dynamicEnum/provider/ProviderHelper$MappedAttributeFilter.class<br/>codebase/com/lcs/wc/flextype/dynamicEnum/provider/ProviderHelper$TypeDefinitionMappedAttributeFilter.class<br/>codebase/com/lcs/wc/flextype/dynamicEnum/provider/ProviderHelper.class<br/>codebase/com/lcs/wc/flextype/validators/MappedAttributeValidator.class<br/>codebase/com/lcs/wc/flextype/validators/ReferencedMappedAttributeValidator.class<br/><br/><br/><br/><br/><br/><br/></pre><br/><!-- KEEP PRE TAGS WRAPPED AROUND CONTENT SO CAN KEEP FORMATTED - DO NOT PUT ANYTHING AFTER THIS LINE --><br/><br/> 
+<hr>
+<p style="font-weight: bold">Installing this update as described in these instructions has been
+		      shown to correct the indicated problems in testing on the listed configurations
+		      in the Certified and Supported Software Matrix.&nbsp; Installations of
+		      this update in software configurations outside the listed, applicable configurations
+		      has not been tested and is not recommended.&nbsp; This update is provided
+		      subject to the terms and conditions of your license agreement with PTC
+            or its subsidiary or distributor, as applicable.</p><p>Copyright &copy; 2015 PTC Inc.</p>
+
+
+
+
+</body>
+
+</html>
