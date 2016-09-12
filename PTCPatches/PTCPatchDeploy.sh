@@ -17,7 +17,7 @@ cd /opt/ptc/Windchill_11.0/HTTPServer/bin
 
 ###Copy the PTC Patch jsr file to <WTHOME> directory ###
 
-cp /home/GithubRepo/PTCPatches/FlexPLM.11.0.0.05.44.jar /opt/ptc/Windchill_11.0/Windchill
+cp /home/GithubRepo/PTCPatches/FlexPLM.11.0.0.05.44.jar /opt/ptc/Windchill_11.0/Windchill/
 
 ###command to install the patch###
 cd /opt/ptc/Windchill_11.0/Windchill
