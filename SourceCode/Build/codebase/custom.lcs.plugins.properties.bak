@@ -1,5 +1,0 @@
-#####################################################################################
-## Plugin to set the Color Name
-#####################################################################################
-com.lcs.wc.foundation.LCSPluginManager.eventPlugin.2000=targetClass|com.lcs.wc.color.LCSColor^targetType|ALL^pluginClass|com.nike.wc.color.NikeColorPlugin^pluginMethod|setColorName^event|PRE_PERSIST^priority|1
-
