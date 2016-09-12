@@ -4,7 +4,7 @@
 <project name="NIKE_Build" basedir="." default="all" xmlns:sonar="antlib:org.sonar.ant">
 	<property file="build.properties"/>
 	<taskdef resource="net/sf/antcontrib/antlib.xml"/>
-	<target name="all" depends="init,compile,makejar,cleanup" description="Nike's FlexPLM Build">
+	<target name="all" depends="init,compile,makejar,cleanup,buildcode" description="Nike's FlexPLM Build">
 		<echo message="---------------------------"/>
 		<echo message="---------------------------"/>
 		<echo message="NIKE code build completed..."/>
@@ -80,7 +80,7 @@
 		<mkdir dir="${build.targetpath}"/>
 		<mkdir dir="${build.targetpath}/codebase"/>
 		<mkdir dir="${build.targetpath}/wtCustom"/>
-		<javac srcdir="src" destdir="${build.targetpath}/codebase" debug="true" deprecation="${deprecation}" classpath="${classpath}"/>	
+		<javac includeantruntime="false" srcdir="src" destdir="${build.targetpath}/codebase" debug="true" deprecation="${deprecation}" classpath="${classpath}"/>	
 	</target>
 
 
@@ -174,12 +174,12 @@
 		<echo message="Starting to copy distribution jar to WT_HOME..."/>
 		<echo message="------------------------------"/>
 		<copy  todir="${env.WT_HOME}" overwrite="true">
-				<fileset dir="${build.jar.target.location}" includes="${build.jar.name}${build.number}.jar"/>	
+				<fileset dir="${build.jar.target.location}" includes="${build.jar.name}${build.number}.${timeStamp}.jar"/>	
 		</copy>
 		<echo message="------------------------------"/>
 		<echo message="Starting jar deployment..."/>
 		<echo message="------------------------------"/>
-		<unjar src="${env.WT_HOME}/${build.jar.name}${build.number}.jar" dest="${env.WT_HOME}"/>		
+		<unjar src="${env.WT_HOME}/${build.jar.name}${build.number}.${timeStamp}.jar" dest="${env.WT_HOME}"/>		
 	</target>
  	
 </project>
