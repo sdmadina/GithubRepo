@@ -1,3 +1,4 @@
+#!/bin/bash
 ### Steps to deploy custom code ###
 
 ### 1. Copy the repository to windchill folder ###
