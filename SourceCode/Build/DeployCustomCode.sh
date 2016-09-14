@@ -11,7 +11,6 @@ echo "End : Copying the repository to windchill folder"
 echo "Start : Navigating to windchill shell"
 cd /opt/ptc/Windchill_11.0/Windchill/bin
 ./windchill shell
-echo `printenv | grep T`
 echo "End : Navigating to windchill shell"
 
 ### 3. command to stop windchill###
@@ -27,8 +26,7 @@ echo "End : Navigating to the build folder"
 
 ### 5. Execute the ant command ###
 echo "Start : Executing ant command"
-echo `printenv | grep T`
-ant
+/opt/ptc/Windchill_11.0/Windchill/ant/bin/ant
 echo "End : Executing ant command done"
 
 ### 6. command to clear the tomcat cache ###
