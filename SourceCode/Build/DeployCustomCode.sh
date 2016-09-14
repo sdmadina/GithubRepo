@@ -16,19 +16,17 @@ echo "End : Navigating to windchill shell"
 ### 3. command to stop windchill###
 echo "Start : Stopping windchill"
 ./windchill stop
-echo `pwd`
 echo "End : Windchill stopped"
 
 ### 4. Navigate to the build folder ###
 echo "Start : Navigating to the build folder"
 cd ../SourceCode/Build
-echo `pwd`
 echo "End : Navigating to the build folder"
 
 
 ### 5. Execute the ant command ###
 echo "Start : Executing ant command"
-echo `pwd`
+echo `printenv | grep T`
 ant
 echo "End : Executing ant command done"
 
