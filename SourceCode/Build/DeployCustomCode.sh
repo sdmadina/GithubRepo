@@ -20,13 +20,13 @@ echo "End : Windchill stopped"
 
 ### 4. Navigate to the build folder ###
 echo "Start : Navigating to the build folder"
-cd /opt/ptc/Windchill_11.0/Windchill/SourceCode/Build
+cd ../SourceCode/Build
 echo "End : Navigating to the build folder"
 
 
 ### 5. Execute the ant command ###
 echo "Start : Executing ant command"
-../../ant/bin/ant
+ant
 echo "End : Executing ant command done"
 
 ### 6. command to clear the tomcat cache ###
