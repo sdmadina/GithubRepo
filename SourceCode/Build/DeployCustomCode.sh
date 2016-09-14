@@ -27,9 +27,10 @@ echo "End : Navigating to the build folder"
 ### 5. Execute the ant command ###
 echo "Start : Executing ant command"
 export WT_HOME=/opt/ptc/Windchill_11.0/Windchill/
-cd /opt/ptc/Windchill_11.0/Windchill/bin
-./setvars.sh
-cd /opt/ptc/Windchill_11.0/Windchill/SourceCode/Build
+#cd /opt/ptc/Windchill_11.0/Windchill/bin
+#./setvars.sh
+export JAVA_HOME=/opt/ptc/Windchill_11.0/Java/jre/bin/java
+#cd /opt/ptc/Windchill_11.0/Windchill/SourceCode/Build
 /opt/ptc/Windchill_11.0/Windchill/ant/bin/ant
 echo "End : Executing ant command done"
 
