@@ -47,4 +47,4 @@ echo "End : Infoengine cache cleared"
 echo "Start : Starting windchill"
 cd /opt/ptc/Windchill_11.0/Windchill/bin
 ./windchill start
-echo "End : Windchill started"
+echo "End : Windchill started..."
