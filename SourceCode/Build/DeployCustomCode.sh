@@ -11,6 +11,7 @@ echo "End : Copying the repository to windchill folder"
 echo "Start : Navigating to windchill shell"
 cd /opt/ptc/Windchill_11.0/Windchill/bin
 ./windchill shell
+echo `printenv | grep T`
 echo "End : Navigating to windchill shell"
 
 ### 3. command to stop windchill###
