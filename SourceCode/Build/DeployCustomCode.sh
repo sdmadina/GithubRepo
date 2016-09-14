@@ -23,7 +23,7 @@ echo "Start : Navigating to the build folder"
 cd /opt/ptc/Windchill_11.0/Windchill/SourceCode/Build
 echo "End : Navigating to the build folder"
 
-echo printenv
+echo `printenv`
 
 ### 5. Execute the ant command ###
 echo "Start : Executing ant command"
