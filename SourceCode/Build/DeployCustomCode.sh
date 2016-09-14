@@ -25,7 +25,7 @@ echo "End : Navigating to the build folder"
 
 ### 5. Execute the ant command ###
 echo "Start : Executing ant command"
-../../ant
+../../ant/bin/ant
 echo "End : Executing ant command done"
 
 ### 6. command to clear the tomcat cache ###
