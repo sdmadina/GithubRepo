@@ -41,15 +41,15 @@
 
 		<!-- Set classpath -->
 		<path id="project.class.path">
-			<pathelement path="${env.WT_HOME}/codebase"/>
+			<pathelement path="${WT_HOME}/codebase"/>
 			<!-- codebase -->
 
-			<fileset dir="${env.WT_HOME}/lib">
+			<fileset dir="${WT_HOME}/lib">
 				<!-- include all windchill libs -->
 				<include name="**/*.jar"/>
 			</fileset>
 
-			<fileset dir="${env.WT_HOME}/codebase/WEB-INF/lib">
+			<fileset dir="${WT_HOME}/codebase/WEB-INF/lib">
 				<!-- include all windchill libs -->
 				<include name="**/*.jar"/>
 			</fileset>		
@@ -57,22 +57,22 @@
 		</path>
 
 		<property name="classpath" refid="project.class.path"/>
-		<property name="codebase" location="${env.WT_HOME}/codebase"/>
-		<property name="web-root" location="${env.WT_HOME}/codebase/rfa/"/>
-		<property name="db" location="${env.WT_HOME}/db"/>
-		<property name="loadFiles" location="${env.WT_HOME}/loadFiles"/>
-		<property name="patches" location="${env.WT_HOME}/patches"/>
-		<property name="src" location="${env.WT_HOME}/src"/>
-		<property name="bin" location="${env.WT_HOME}/bin"/>
+		<property name="codebase" location="${WT_HOME}/codebase"/>
+		<property name="web-root" location="${WT_HOME}/codebase/rfa/"/>
+		<property name="db" location="${WT_HOME}/db"/>
+		<property name="loadFiles" location="${WT_HOME}/loadFiles"/>
+		<property name="patches" location="${WT_HOME}/patches"/>
+		<property name="src" location="${WT_HOME}/src"/>
+		<property name="bin" location="${WT_HOME}/bin"/>
 		<property name="compileWithDebug" value="${env.WT_COMPILEWITHDEBUG}"/>
-	    <property name="antlib" location="${env.WT_HOME}/ant/lib"/>
+	    <property name="antlib" location="${WT_HOME}/ant/lib"/>
 	</target>
 
 	<!-- *************************************************************************** -->
 	<!-- Java Tasks - Tasks to compile and create package -->
 	<!-- *************************************************************************** -->
 
-	<!-- Compile source to env.WT_HOME/codebase folder -->
+	<!-- Compile source to WT_HOME/codebase folder -->
 	<target name="compile" depends="copyjspfiles,copypropertyfiles,copybinfiles,copywtcustomfiles,copyLoadFiles" description="Compile The Source Code">		
 		<echo message="--------------------------------"/>
 		<echo message="Starting NIKE code compilation..."/>		
@@ -173,13 +173,13 @@
 		<echo message="------------------------------"/>
 		<echo message="Starting to copy distribution jar to WT_HOME..."/>
 		<echo message="------------------------------"/>
-		<copy  todir="${env.WT_HOME}" overwrite="true">
+		<copy  todir="${WT_HOME}" overwrite="true">
 				<fileset dir="${build.jar.target.location}" includes="${build.jar.name}${build.number}.${timeStamp}.jar"/>	
 		</copy>
 		<echo message="------------------------------"/>
 		<echo message="Starting jar deployment..."/>
 		<echo message="------------------------------"/>
-		<unjar src="${env.WT_HOME}/${build.jar.name}${build.number}.${timeStamp}.jar" dest="${env.WT_HOME}"/>		
+		<unjar src="${WT_HOME}/${build.jar.name}${build.number}.${timeStamp}.jar" dest="${WT_HOME}"/>		
 	</target>
  	
 </project>
