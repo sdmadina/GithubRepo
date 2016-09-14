@@ -20,6 +20,8 @@ echo "End : Windchill stopped"
 
 ### 4. Navigate to the build folder ###
 echo "Start : Navigating to the build folder"
+cd /opt/ptc/Windchill_11.0/Windchill/bin
+./windchill shell
 cd ../SourceCode/Build
 echo "End : Navigating to the build folder"
 
