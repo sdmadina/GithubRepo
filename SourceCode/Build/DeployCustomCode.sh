@@ -2,6 +2,7 @@
 ### Steps to deploy custom code ###
 
 ### 1. Copy the repository to windchill folder ###
+sudo su -
 echo "Start : Copying the repository to windchill folder"
 cp -rf /home/GithubRepo/SourceCode /opt/ptc/Windchill_11.0/Windchill/
 echo "End : Copying the repository to windchill folder"
