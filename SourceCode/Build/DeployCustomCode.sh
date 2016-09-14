@@ -26,6 +26,7 @@ echo "End : Navigating to the build folder"
 
 ### 5. Execute the ant command ###
 echo "Start : Executing ant command"
+WT_HOME=/opt/ptc/Windchill_11.0/Windchill/
 /opt/ptc/Windchill_11.0/Windchill/ant/bin/ant
 echo "End : Executing ant command done"
 
