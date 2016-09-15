@@ -812,7 +812,7 @@ if(!lcsContext.isVendor){%>
                         <%if(!lcsContext.isVendor){%>
 
                             <a href="javascript:viewExceptionReport()" <%= getClass(true, "WORKLIST_EXCEPTION_REPORT", activity)%>><%= worklistExceptionsOpt %></a><br>
-							<a href="javascript:viewExceptionReport()" <%= getClass(true, "WORKLIST_EXCEPTION_REPORT", activity)%>>NIKE POC</a><br>
+							<a href="javascript:viewExceptionReport()" <%= getClass(true, "WORKLIST_EXCEPTION_REPORT", activity)%>><%= worklistExceptionsOpt %></a><br>
                             <% if(adminGroup.equals("ALL") || lcsContext.inGroup(adminGroup.toUpperCase() )){ %>
                                 <a href="javascript:viewAllAttributes()"><%= listAttributesOpt %></a><br>
                                 <a href="javascript:viewLCSAccessLogStats()"><%= userAccessLogStatsOpt %></a><br>
